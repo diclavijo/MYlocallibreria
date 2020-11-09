@@ -1,0 +1,166 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+
+<html  lang="es">
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>Registro</title>
+		{% load static %}
+		<link rel="stylesheet" type="text/css" href="{% static 'formulario/estilos.css' %}">
+		<script>
+		
+			function validarFormulario(){
+
+				var txtNombre = document.getElementById('nombre').value;
+				var txtEdad = document.getElementById('edad').value;
+				var txtCorreo = document.getElementById('correo').value;
+				var txtFecha = document.getElementById('fecha').value;
+				var cmbSelector = document.getElementById('selector').selectedIndex;
+				var chkEstado = document.getElementById('checkBox');
+				var rbtEstado = document.getElementsByName('radioButton');
+
+				var banderaRBTN = false;
+
+		//Test campo obligatorio
+		if(txtNombre == null || txtNombre.length == 0 || /^\s+$/.test(txtNombre)){
+			alert('ERROR: El campo nombre no debe ir vacío o lleno de solamente espacios en blanco');
+			document.datos.nombre.focus();
+			return false;
+		}
+
+		//Test apellido
+		if(txtApellido == null || txtApellido.length == 0 || isNaN(txtApellido)){
+			alert('ERROR: El campo nombre no debe ir vacío o lleno de solamente espacios en blanco');
+			document.datos.apellido.focus();
+			return false;
+		}
+
+		//Test edad
+		if(txtEdad == null || txtEdad.length == 0 || isNaN(txtEdad)){
+			alert('ERROR: Debe ingresar una edad');
+			document.datos.edad.focus();
+			return false;
+		}
+
+		//Test correo
+		if(!(/\S+@\S+\.\S+/.test(txtCorreo))){
+			alert('ERROR: Debe escribir un correo válido');
+			document.datos.correo.value="";
+			document.datos.correo.focus();
+			return false;
+		}
+
+		//Test fecha
+		if(!isNaN(txtFecha)){
+			alert('ERROR: Debe elegir una fecha');
+			document.datos.fecha.focus();
+			return false;
+		}
+
+		//Test comboBox
+		if(cmbSelector == null || cmbSelector == 0){
+			alert('ERROR: Debe seleccionar una opcion del combo box');
+			document.datos.selector.focus();
+			return false;
+		}
+
+		//Test checkBox
+		if(!chkEstado.checked){
+			alert('ERROR: Debe seleccionar el checkbox');
+			return false;
+		}
+
+		//Test RadioButtons
+		for(var i = 0; i < rbtEstado.length; i++){
+			if(rbtEstado[i].checked){
+				banderaRBTN = true;
+				break;
+			}
+		}
+		if(!banderaRBTN){
+			alert('ERROR: Debe elegir una opción de radio button');
+			return false;
+		}
+
+		return true;
+	}
+
+	</script>
+
+
+	</head>
+
+	<body>
+		<h1>REGISTRO</h1>
+		<p>Los campos marcados con un asterisco son obligatorios</p>
+
+	<form name="datos" action="" onsubmit="return validarFormulario()">
+		<fieldset><legend>¿Quien eres?</legend>
+		<label for="nombre">
+			<span>Nombre:</span>
+		</label>
+		<input type="text" id="nombre" name="nombre">
+		
+		<br><br>
+		<label for="Apellido">
+			<span>Apellido:</span>
+		</label>
+		<input type="text" id="apellido" name="apellido">
+		
+		<br><br>
+
+		<label for="edad">
+			<span>Edad:</span>
+		</label>
+		<input type="text" id="edad" name="edad" >
+		
+		<br><br>
+
+		<label for="correo">
+			<span>Correo electrónico:</span>
+		</label>
+		<input type="text" id="correo" name="correo" >
+
+		<br><br>
+		
+		<label for="fecha">
+			<span>Fecha:</span>
+		</label>
+		<input type="date" id="fecha" name="fecha">
+
+		<br><br>
+</fieldset>
+		<label for="selector">
+			<span>Selecciona una comuna:</span>
+		</label>
+		<select name="selector" id="selector" >
+			<option value="">Escoje</option>
+			<option value="1">Maipu</option>
+			<option value="2">Cerrillos</option>
+			<option value="3">San Bernardo</option>
+		</select>
+
+		<br><br>
+
+		</label>
+		</fieldset>
+
+			<fieldset><legend>¿De dónde eres?</legend>
+				<label for="city">Ciudad</label> 
+					<input name="city" type="text" maxlength="50" id="city" placeholder="TuCiudad"/><br/>
+				<label for="zipcode">Código postal</label> 
+					<input name="zipcode" type="text" maxlength="50" id="zipcode" placeholder="00000" pattern="[0-9]{5}"/><br/>
+			</fieldset>
+
+		<p><input type="submit" value="Crear cuenta"/></p>
+
+	</form>
+	</body>
+
+</html>
+
+{% endblock %}

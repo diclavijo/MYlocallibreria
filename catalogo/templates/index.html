@@ -1,27 +1,67 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<h1>Local Library Home</h1>
 
-  <p>Welcome to <em>LocalLibrary</em>, Django website </p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
 
-<h2>UML Models</h2>
-<p>An UML diagram of the site's Django model structure is shown below. </p>
+  <!-- Custom fonts for this theme -->
+  {% load static %}
 
+  <link href="{% static 'css/estilos.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+ <section class="wrapper">
+  <section class="main">
+   <article>
+    <h1 id="titulo2">Bienvenidos</h1>
+    <h2>Que producimos</h2>
+    <p> Durante los últimos 20 años aproximadamente, se han producido grandes avances en <a href="http://www.animalplanetnutribalance.cl/alimento-premium-perros/" target="_blank">Alimentacion Dietetica</a>(lo que se conoce como dietas terapéuticas o funcionales), que desempeña un importante papel en la práctica veterinaria actual destinada a tu amigo de cuatro patas. Además de proporcionar a tu perro la gama perfecta de <a href= https://www.purina-latam.com/cl/proplan/perros/productos?gclid=Cj0KCQjwqrb7BRDlARIsACwGad7OzyPNGc6QiLzFiFlEesyYEERaRTQEBOF7oYsFA7NPezPbrTeF57EaAqOXEALw_wcB&gclsrc=aw.ds target="_blank">Nutrientes</a> para mantenerlo sano y feliz, estas dietas especializadas satisfacen las necesidades dietéticas ocasionadas por problemas de salud específicos. También hay dietas especializadas para ayudar a los perros durante su recuperación, por ejemplo, después de una cirugía o en caso de desnutrición si ha sido abandonado..</p>
+   </article>
 <div>
-{% load static %}
-<img src="{% static '../images/libreria.png' %}" alt="My image" style="width:555px;height:540px;"/>
-</div>  
+	
+</div>
+   <article>
+    <h1 id="titulo1">¿Sirve para su pelaje?</h1>
+    <p>Te ofrecemos una <a href=https://www.altudog.com/blog/buenos-alimentos-para-el-pelo-de-los-perros-ejemplos/#Alimentos_para_evitar_la_caida_del_pelo_en_los_perros target="_blank">Guía</a> con alimentos para evitar la caída del pelo en los perros y para hacer que su pelaje brille. Si tu mascota lo necesita también te recomendamos suplementos y vitaminas buenos para ellos y te ofrecemos una lista con otros cuidados complementarios. Aceite de oliva: Ayudan a calmar la piel inflamada, disminuyen la caspa y mejoran la textura del pelaje.
+	Plátanos y pepinos: Ayudarán a que se mantenga hidratado
+	Agua limpia y fresca: Es imprescindible que el perro se mantenga hidratado para que su piel y pelo estén perfectos.
+	Pescado: Gracias a sus riqueza en Omega3 es perfecto para que tu mascota tenga un pelaje suave y brillante. Además, ¡les encantan! Te recomendamos especialmente nuestros bocaditos 100% salmón y nuestros snacks de espadín deshidratado.</p>
+   </article>
+  </section>
+  <aside>
+   <h3>Quienes somos</h3>
+   <p id="parrafo1">Somos una empresa que busca el bienestar del amigo de 4 patitas de tu casa o mejor dicho el mejor amigo de la familia, propiciamos alimento y recomendaciones de las mejores fuentes del país, de esta manera salvando la vida y aumentando la esperanza de vida de tus mascotas</p>
+ 
+  </aside>
+ </section>
 
-<h2>Dynamic content</h2>
+ <footer>
+ <p>Diego Clavijo, Aaron Miranda, 
+ 	Analista programador
+  2020 todos los Derechos Reservados.</p>
+ </footer>
 
-  <p>The library has the following record counts:</p>
+
+</body>
+
+
+<h2>INFORMACION DE PRODUCTOS</h2>
+
+  <p>Te informamos los productos disponibles :</p>
   <ul>
-    <li><strong>Books:</strong> {{ num_books }}</li>
-    <li><strong>Copies:</strong> {{ num_instances }}</li>
-    <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
-    <li><strong>Authors:</strong> {{ num_authors }}</li>
+    <li><strong>Alimentos:</strong> {{ num_alimentos }}</li>
+    <li><strong>Disponibles:</strong> {{ num_instances }}</li>
   </ul>
 
 {% endblock %}

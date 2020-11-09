@@ -1,0 +1,21 @@
+.sidebar-nav{
+	background: #E29A24;
+	color:red;
+	padding:2rem 0;
+	top:0;
+	right:0;
+	border: 10px solid #333;
+	color:red;
+	padding: 40px;
+	border: 16.8px solid #000;
+	display:flex;
+	justify-content:space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+img{
+display:block;
+margin:auto;
+}
+
+

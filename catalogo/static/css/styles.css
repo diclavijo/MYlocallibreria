@@ -1,5 +1,13 @@
-.sidebar-nav {
-	margin-top: 20px;
-	padding: 0;
-	list-style: none; 
+h1{
+	line-height:1.3em;
+	font-size:2rem;
+}
+p{
+	text-align: left;
+	margin-bottom: 1.6em;
+	background: #E29A24;
+	color: white;
+	margin: 30px 60px;
+	padding: 30px;
+	border: 10px solid #333;
 }

@@ -2,9 +2,9 @@ from django.contrib import admin
 
 # Register your models here.
 
-from . models import Author, Genre, Book, BookInstance
+from . models import Producto, Genre, Alimento, AlimentoInstance
 
-admin.site.register(Book)
-admin.site.register(Author)
+admin.site.register(Alimento)
+admin.site.register(Producto)
 admin.site.register(Genre)
-admin.site.register(BookInstance)
+admin.site.register(AlimentoInstance)

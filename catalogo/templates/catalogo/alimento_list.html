@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Local LittlePet</h1>
+
+  <p>Bienvenido a <em>LittlePet </em>. </p>
+
+    <h1>Lista de alimentos</h1>
+
+    {% if alimento_list %}
+    <ul>
+
+      {% for alimento in alimento_list %}
+      <li>
+        <a href="{{ alimento.get_absolute_url }}">{{ alimento.title }}</a> ({{alimento.producto}})
+      </li>
+      {% endfor %}
+
+    </ul>
+
+    {% else %}
+      <p>No hay alimento disponibles.</p>
+    {% endif %}  
+{% endblock %}

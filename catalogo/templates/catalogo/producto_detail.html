@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Producto: {{ producto }} </h1>
+<p>{{prducto.fecha_ingreso}} - {% if producto.fecha_caducidad %}{{producto.fecha_caducidad}}{% endif %}</p>
+
+<div style="margin-left:20px;margin-top:20px">
+<h4>Alimentos</h4>
+
+<dl>
+{% for alimento in producto.alimento_set.all %}
+  <dt><a href="{% url 'alimento-detail' alimento.pk %}">{{alimento}}</a> ({{alimento.alimentoinstance_set.all.count}})</dt>
+  <dd>{{alimento.summary}}</dd>
+{% endfor %}
+</dl>
+
+</div>
+{% endblock %}

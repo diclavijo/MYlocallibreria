@@ -1,23 +1,30 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Title: {{ alimento.title }}</h1>
+<head>
+    <h1>Title: {{ alimento.title }}</h1>
+  {% load static %}
+
+  <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body> 
 
   <p><strong>Producto:</strong> <a href="">{{ alimento.producto }}</a></p> <!-- author detail link not yet defined -->
   <p><strong>Summary:</strong> {{ alimento.summary }}</p>
   <p><strong>ISBN:</strong> {{ alimento.isbn }}</p> 
-  <p><strong>Language:</strong> {{ alimento.language }}</p>  
+
   <p><strong>Genre:</strong> {% for genre in alimento.genre.all %} {{ genre }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>  
 
   <div style="margin-left:20px;margin-top:20px">
-    <h4>cantidad</h4>
+    <h4>Nuestros Productos</h4>
 
     {% for copy in alimento.alimentoinstance_set.all %}
     <hr>
     <p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'm' %}text-danger{% else %}text-warning{% endif %}">{{ copy.get_status_display }}</p>
-    {% if copy.status != 'a' %}<p><strong>Due to be returned:</strong> {{copy.alimento_disponible}}</p>{% endif %}
-    <p><strong>Imprint:</strong> {{copy.imprint}}</p>
-    <p class="text-muted"><strong>Id:</strong> {{copy.id}}</p>
+    {% if copy.status != 'a' %}<p><strong>Productos disponibles:</strong> {{copy.alimento_disponible}}</p>{% endif %}
+    <p><strong>Queda:</strong> {{copy.imprint}}</p>
+    <p class="text-muted"><strong>Id del producto:</strong> {{copy.id}}</p>
     {% endfor %}
   </div>
+</body>   
 {% endblock %}

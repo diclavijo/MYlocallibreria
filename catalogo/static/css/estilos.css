@@ -1,9 +1,6 @@
 body{
-	background: url("static/img/Fondo.jpg") no-repeat center center fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+	background-color: #E29A24;
+	height: 220vh;
 	font-family:georgia,times,serif;
 	color:#000000;
 	font-size: 1.2rem;

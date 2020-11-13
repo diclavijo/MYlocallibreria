@@ -58,7 +58,7 @@ from .models import Producto
 class ProductoCreate(CreateView):
     model = Producto
     fields = '__all__'
-    initial={'fecha_caducidad':'05/01/2018',}
+    initial={'fecha_caducidad':'05/01/2022',}
 
 class ProductoUpdate(UpdateView):
     model = Producto
@@ -67,4 +67,8 @@ class ProductoUpdate(UpdateView):
 class ProductoDelete(DeleteView):
     model = Producto
     success_url = reverse_lazy('productos')
+
+from .forms import RenewAlimentoForm
+from catalogo.forms import RenewAlimentoForm
+
 

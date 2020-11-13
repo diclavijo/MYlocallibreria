@@ -1,0 +1,43 @@
+.first{				/*clase*/					
+	background: green;
+	color:#fff;
+	font-size: 3em;
+	height: 50vh;
+	display:flex;		/*desplazamiento flexible*/
+	justify-content: center;	/*contenido de la caja centrado*/
+	align-items: center;	/*alineamiento de elementos centrado*/
+}
+
+
+/* Extra small devices */
+@media (max-width: 576px) {
+	.first:after {
+		content: 'Small';
+	}
+}
+
+@media (min-width: 576px) {
+	.first:after{
+		content: 'Small';
+	}
+}
+
+/* Medium devices 768px and up*/
+@media (min-width: 768px) { 
+	.first:after{
+		content: 'Medium';
+	}
+}
+/* Large devices 992px and up */
+@media (min-width: 992px) { 
+		.first:after{
+		content: 'large';
+	}
+ }
+/* Extra Large devices  1200px and up*/
+
+@media (min-width: 1200px) { 
+	.first:after{
+		content:'Extra Large';
+		} 
+}

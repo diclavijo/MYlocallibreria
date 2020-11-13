@@ -33,7 +33,7 @@ class AlimentoInstance(models.Model):
 	id = models.UUIDField(primary_key=True, default=uuid.uuid4)
 	alimento = models.ForeignKey('Alimento', on_delete=models.SET_NULL, null=True)
 	imprint = models.CharField(max_length=200)
-	
+	alimento_disponible = models.DateField(null=True, blank=True)
 
 	DISPONIBILIDAD = (
 		('E', 'En_envio'),
@@ -52,7 +52,7 @@ class AlimentoInstance(models.Model):
 	)
 
 	class Meta:
-		ordering = ['alimento']
+		ordering = ['alimento_disponible']
 
 
 	def __str__(self):

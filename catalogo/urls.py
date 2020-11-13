@@ -17,5 +17,6 @@ urlpatterns += [
     path('producto/create/', views.ProductoCreate.as_view(), name='producto_create'),
     path('producto/<int:pk>/update/', views.ProductoUpdate.as_view(), name='producto_update'),
     path('producto/<int:pk>/delete/', views.ProductoDelete.as_view(), name='producto_delete'),
+
 ]
 

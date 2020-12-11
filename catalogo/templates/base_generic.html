@@ -5,8 +5,7 @@
   {% block title %}<title>Local LittlePet</title>{% endblock %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
-  <script type="text/javascript" src="js/funciones.js"></script>
+
   
   <!-- Add additional CSS in static file -->
   {% load static %}
@@ -26,9 +25,17 @@
               <li><a href="{% url 'producto_create' %}">Crear Producto</a></li>
               <li><a href="{% url 'alimentos' %}">Alimentos</a></li>
               <li><a href="{% url 'galeria' %}">Feedbacks</a></li>
-              <li><a href="{% url 'formulario' %}">Registro</a></li>
+              <li><a href="{% url 'formulario' %}">Contacto</a></li>
           </ul>
-         {% endblock %}
+          <ul class="sidebar-nav">
+            {% if user.is_authenticated %}
+              <li>Usuario: {{ user.get_username }}</li>
+              <li><a href="{% url 'logout'%}?next={{request.path}}">Salir</a></li>   
+            {% else %}
+              <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+             {% endif %} 
+          </ul>
+          {% endblock %}
           </div>
           <div class="col-sm-10 ">
           {% block content %}{% endblock %}

@@ -5,10 +5,18 @@ import uuid
 
 # Create your models here.
 class Genre(models.Model):
-    #Model representing a book genre."""
-	name = models.CharField(max_length=200)
+
+	name = models.CharField(max_length=100)
 	
+
+	class Meta:
+		ordering = ['name']
+
+	def get_absolute_url(self):
+		return reverse('genre-detail', args=[str(self.id)])
+
 	def __str__(self):
+		
 		return self.name
 
 class Alimento(models.Model):
@@ -20,6 +28,7 @@ class Alimento(models.Model):
 	summary = models.TextField(max_length=1000)
 	isbn = models.CharField('ISBN', max_length=13,)
 	genre = models.ManyToManyField(Genre)
+	imagen = models.ImageField(upload_to='media/', null=True, blank=True)
     
 	def __str__(self):
 		return self.title

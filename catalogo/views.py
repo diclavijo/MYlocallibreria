@@ -4,23 +4,18 @@ from django.views import generic
 
 # Create your views here.
 def index(request):
-    """
-    Función vista para la página inicio del sitio.
-    """
-    # Genera contadores de algunos de los objetos principales
+
     num_alimentos=Alimento.objects.all().count()
     num_instances=AlimentoInstance.objects.all().count()
-    # Libros disponibles (status = 'a')
-  
+
 
     num_visits=request.session.get('num_visits', 0)
     num_visits=request.session['num_visits']=num_visits+1
-    
-    # Renderiza la plantilla HTML index.html con los datos en la variable contexto
+
     return render(
         request,
         'index.html',
-        context={'num_alimentos':num_alimentos,'num_instances':num_instances},
+        context={'num_alimentos':num_alimentos,'num_instances':num_instances,'num_visits':num_visits},
     )
 
 def galeria(request):
@@ -28,6 +23,7 @@ def galeria(request):
         request,
         'galeria.html',
     )    
+
 def formulario(request):
     return render(
         request,
@@ -54,11 +50,17 @@ class ProductoDetailView(generic.DetailView):
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Producto
+from django.contrib.auth.forms import UserCreationForm
+
+class SignUp(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'signup.html'
 
 class ProductoCreate(CreateView):
     model = Producto
     fields = '__all__'
-    initial={'fecha_caducidad':'05/01/2022',}
+    initial={'fecha_caducidad':'05/01/2022'}
 
 class ProductoUpdate(UpdateView):
     model = Producto
@@ -68,7 +70,6 @@ class ProductoDelete(DeleteView):
     model = Producto
     success_url = reverse_lazy('productos')
 
-from .forms import RenewAlimentoForm
-from catalogo.forms import RenewAlimentoForm
+
 
 

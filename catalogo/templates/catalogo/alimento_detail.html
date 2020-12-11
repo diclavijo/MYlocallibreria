@@ -12,7 +12,7 @@
   <p><strong>Producto:</strong> <a href="">{{ alimento.producto }}</a></p> <!-- author detail link not yet defined -->
   <p><strong>Summary:</strong> {{ alimento.summary }}</p>
   <p><strong>ISBN:</strong> {{ alimento.isbn }}</p> 
-
+  <p><strong>Imagen:</strong> {{ alimento.imagen }}</p> 
   <p><strong>Genre:</strong> {% for genre in alimento.genre.all %} {{ genre }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>  
 
   <div style="margin-left:20px;margin-top:20px">

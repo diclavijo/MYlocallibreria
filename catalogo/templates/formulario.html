@@ -8,7 +8,7 @@
 
 	<head>
 		<meta charset="utf-8"/>
-		<title>Registro</title>
+		<title>Contacto</title>
 		{% load static %}
 		<link rel="stylesheet" type="text/css" href="{% static 'formulario/estilos.css' %}">
 		<script>
@@ -29,6 +29,12 @@
 		if(txtNombre == null || txtNombre.length == 0 || /^\s+$/.test(txtNombre)){
 			alert('ERROR: El campo nombre no debe ir vacío o lleno de solamente espacios en blanco');
 			document.datos.nombre.focus();
+			return false;
+		}
+
+		if(txtNombreMasctota == null || txtNombreMasctota.length == 0 || /^\s+$/.test(txtNombreMasctota)){
+			alert('ERROR: El campo nombre de la Mascota no debe ir vacío o lleno de solamente espacios en blanco');
+			document.datos.nombreMascota.focus();
 			return false;
 		}
 
@@ -95,33 +101,33 @@
 	</head>
 
 	<body>
-		<h1>REGISTRO</h1>
+		<h1>Contactanos</h1>
 		<p>Los campos marcados con un asterisco son obligatorios</p>
 
 	<form name="datos" action="" onsubmit="return validarFormulario()">
 		<fieldset><legend>¿Quien eres?</legend>
 		<label for="nombre">
-			<span>Nombre:</span>
+			<span>*Nombre:</span>
 		</label>
 		<input type="text" id="nombre" name="nombre">
 		
 		<br><br>
 		<label for="Apellido">
-			<span>Apellido:</span>
+			<span>*Apellido:</span>
 		</label>
 		<input type="text" id="apellido" name="apellido">
 		
 		<br><br>
 
 		<label for="edad">
-			<span>Edad:</span>
+			<span>*Edad:</span>
 		</label>
 		<input type="text" id="edad" name="edad" >
 		
 		<br><br>
 
 		<label for="correo">
-			<span>Correo electrónico:</span>
+			<span>*Correo electrónico:</span>
 		</label>
 		<input type="text" id="correo" name="correo" >
 
@@ -135,13 +141,13 @@
 		<br><br>
 </fieldset>
 		<label for="selector">
-			<span>Selecciona una comuna:</span>
+			<span>*Selecciona una raza:</span>
 		</label>
 		<select name="selector" id="selector" >
 			<option value="">Escoje</option>
-			<option value="1">Maipu</option>
-			<option value="2">Cerrillos</option>
-			<option value="3">San Bernardo</option>
+			<option value="1">Quilterry</option>
+			<option value="2">Pastor aleman</option>
+			<option value="3">Pitbull</option>
 		</select>
 
 		<br><br>
@@ -149,14 +155,18 @@
 		</label>
 		</fieldset>
 
-			<fieldset><legend>¿De dónde eres?</legend>
+			<fieldset><legend>¿De dónde Es la mascota?</legend>
 				<label for="city">Ciudad</label> 
 					<input name="city" type="text" maxlength="50" id="city" placeholder="TuCiudad"/><br/>
-				<label for="zipcode">Código postal</label> 
+				<label for="nombreMascota">
+					<span>*NombreMascota:</span>
+				</label>
+		<input type="text" id="nombre" name="nombre">	
+				<label for="zipcode">*Código del chip</label> 
 					<input name="zipcode" type="text" maxlength="50" id="zipcode" placeholder="00000" pattern="[0-9]{5}"/><br/>
 			</fieldset>
 
-		<p><input type="submit" value="Crear cuenta"/></p>
+		<p><input type="submit" value="Enviar Canino!!"/></p>
 
 	</form>
 	</body>

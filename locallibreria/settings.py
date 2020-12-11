@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catalogo.apps.CatalogoConfig', #This object was created for us in /catalog/apps.py
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -122,6 +123,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-
+LOGIN_REDIRECT_URL = '/catalogo/'
+EMAIL_BACKEND= 'django.core.mail.backends.console.EMAIL_BACKEND'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

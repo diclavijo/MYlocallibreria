@@ -1,5 +1,5 @@
-from django.urls import path 
-from . import views
+from django.urls import path , include 
+from .import views
 
 urlpatterns=[
 	path('',views.index,name='index'),
@@ -9,6 +9,8 @@ urlpatterns=[
 	path('',views.index,name='index'),
 	path('alimentos/', views.AlimentoListView.as_view(), name='alimentos'),
     path('alimento/<int:pk>', views.AlimentoDetailView.as_view(), name='alimento-detail'),
+    path('signup/', views.SignUp.as_view(), name='signup'),
+
 ]
 
 
@@ -17,6 +19,6 @@ urlpatterns += [
     path('producto/create/', views.ProductoCreate.as_view(), name='producto_create'),
     path('producto/<int:pk>/update/', views.ProductoUpdate.as_view(), name='producto_update'),
     path('producto/<int:pk>/delete/', views.ProductoDelete.as_view(), name='producto_delete'),
-
+    
 ]
 

@@ -1,16 +1,17 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<h1>Local LittlePet Crear Producto</h1>
+<h1>Crear Producto</h1>
 
   <p>Bienvenido. <em></em>En esta seccion podras crear una sugerencia para el administrador de algun alimento que necesites. </p>
+
 
 <form action="" method="post">
     {% csrf_token %}
     <table>
     {{ form.as_table }}
     </table>
-    <input type="submit" value="Registrar" />
-    
+    <input type="submit" value="Registrar sugerencia" />
+
 </form>
 {% endblock %}
